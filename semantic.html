@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border: 1px solid black;
+            height: 20rem;
+            width: 30rem;
+            margin-bottom: 3rem;
+        }
+        p{
+            font-family: serif;
+            font-size: 2rem;
+        }
+        input{
+            padding-left: 1rem;
+        }
+        button{
+            background-color: green;
+            color: black;
+            width: 5rem;
+            border: none;
+            height: 1.5rem;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .bar{
+            display: flex;
+        }
+            .progress {
+            width: 0%;
+            height: 20px;
+            background-color: #4caf50;
+            transition: width 4s linear;
+        }
+        .Start{
+            width: 13rem;
+        }
+    </style>
+</head>
+<body>
+    <svg width="50" height="50">
+        <circle cx="45" cy="45" r="45" stroke="black" stroke-width="2" fill="" />
+    </svg>
+    <p>This is <em>important</em> information.</p>
+    <div id="box">
+        <p id="text"></p>
+    </div><br>
+    <input type="text" id="newtext" placeholder="Add Text" required>
+    <button onclick="addtext()">Send</button>
+    <div class="bar">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <button onclick="startProgress()" class="Start">Start Progress</button>
+    </div>
+</body>
+<script>
+    function addtext(){
+        if(newtext.value !== null){
+            text.innerHTML += text.innerHTML ? "<hr>" + newtext.value :newtext.value
+            newtext.value = ""
+        }
+    }
+    function startProgress() {
+        var progressBar = document.getElementById('progress');
+        progressBar.style.width = '100%';
+    }
+
+</script>
+</html>
